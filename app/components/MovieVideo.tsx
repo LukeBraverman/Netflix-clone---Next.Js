@@ -30,7 +30,7 @@ export default async function MovieVideo()
 
             <div className={"h-[55vh] lg:h-[60vh] w-full flex justify-start items-center"}>
                 <video
-                poster={data.imageString}
+                poster={data?.imageString}
                 autoPlay
                 muted
                 loop
@@ -44,9 +44,9 @@ export default async function MovieVideo()
                     <h1 className="text-white text-4xl md:text-5xl
                     lg:text-6xl font-bold
                     ">
-                        {data.title}
+                        {data?.title}
                     </h1>
-                    <p className="text-white text-lg mt-5 line-clamp-3">{data.overview}</p>
+                    <p className="text-white text-lg mt-5 line-clamp-3">{data?.overview}</p>
                     <div className="flex gap-x-3 mt-4">
                         <MovieButtons
                         age={data?.age as number} duration={data?.duration as number}

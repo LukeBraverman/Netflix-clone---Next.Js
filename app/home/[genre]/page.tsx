@@ -8,7 +8,7 @@ async function getData(category: string, userId: string)
     switch (category) {
 
         case "shows": {
-            const data = await prisma.movie.findMany({
+            const data = await prisma?.movie.findMany({
                 where: {
                     category: 'show'
                 },
@@ -31,7 +31,7 @@ async function getData(category: string, userId: string)
             return data
         }
         case "movies": {
-            const data = await prisma.movie.findMany({
+            const data = await prisma?.movie.findMany({
                 where: {
                     category: "movie"
                 },
@@ -54,7 +54,7 @@ async function getData(category: string, userId: string)
             return data
         }
         case "recently": {
-            const data = await prisma.movie.findMany({
+            const data = await prisma?.movie.findMany({
                 where: {
                     category: "recent"
                 },
@@ -88,7 +88,7 @@ export default async function CategoryPage({params}: {params: {genre: string}})
     const data = await getData(params.genre,session?.user?.email as string )
     return(
        <div className={" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-5 sm:px-0 mt-10 gap-6"}>
-           {data.map((movie) => {
+           {data?.map((movie) => {
 
                return(
                    <div key={movie.id} className={"relative h-60"}>
